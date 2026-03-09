@@ -17,4 +17,6 @@ Style/TopLevelMethodDefinition:
   Enabled: false
 Lint/NonAtomicFileOperation:
   Enabled: false
+Style/OneClassPerFile:
+  Enabled: false
 

@@ -42,6 +42,7 @@ jobs:
         uses: Homebrew/actions/cache-homebrew-prefix@main
         with:
           install: vale ruby
+          workflow-key: docs
 
       - name: Cleanup Homebrew/brew docs
         if: github.repository == 'Homebrew/brew'

@@ -39,10 +39,16 @@ jobs:
           persist-credentials: false
 
       - name: Install Vale and Ruby
+        # Don't cache the prefix for the formulae.brew.sh repository as it won't download its own JSON API files
+        if: github.repository != 'Homebrew/formulae.brew.sh'
         uses: Homebrew/actions/cache-homebrew-prefix@main
         with:
           install: vale ruby
           workflow-key: docs
+
+      - name: Install Vale and Ruby for formulae.brew.sh
+        if: github.repository == 'Homebrew/formulae.brew.sh'
+        run: brew install vale ruby
 
       - name: Cleanup Homebrew/brew docs
         if: github.repository == 'Homebrew/brew'
